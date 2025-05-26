@@ -1,9 +1,0 @@
-name : Greating
-on : push
-jobs :
-  greet :
-    run-on : ubuntu-latest
-    steps:
-        - name:"greet user"
-          run: echo "Hellow world"
-
