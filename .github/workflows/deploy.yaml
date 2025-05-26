@@ -8,9 +8,20 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: get code
-              run: |                 # ye pipe use krenge for multiple cammand run krne ke liye 
-                echo "code cloning..."
-                echo "${{toJson(github)}}"   
-                git clone https://github.com/${{github.repository}}.git
+              uses: actions/checkout@v4  #niche ka 4 line ka replacemant h ye github marketplace mai likha hua code h 
+            #   run: |                 # ye pipe use krenge for multiple cammand run krne ke liye 
+            #     echo "code cloning..."
+            #     echo "${{toJson(github)}}"   
+            #     git clone https://github.com/${{github.repository}}.git
+            - name: install node js 20
+              uses: actions/setup-node@v4
+              with : 
+                node-version: 20
+            - name: node version
+              run: node -v
+            - name: install dependenceis
+              run: npm ci        #npm i v same hi h diffrence ye h kki 'ci' ye package.lock.json se version leta h or  'i' package.json se
+            - name: run tests
+              run: npm run test
 
     
