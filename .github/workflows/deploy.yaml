@@ -1,0 +1,16 @@
+name: deployment
+on: [push, workflow_dispatch]     #ye array hai or niche wala list 
+# on:                             # ye list array of object ke liye use krna chahiye 
+#     - push
+#     - workflow_dispatch
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: get code
+              run: |                 # ye pipe use krenge for multiple cammand run krne ke liye 
+                echo "code cloning..."
+                echo "${{github}}"   
+                git clone https://github.com/${{github.repository}}.git
+                
+    
