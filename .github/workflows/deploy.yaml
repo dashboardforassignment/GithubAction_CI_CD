@@ -10,7 +10,7 @@ jobs:
             - name: get code
               run: |                 # ye pipe use krenge for multiple cammand run krne ke liye 
                 echo "code cloning..."
-                echo "${{github}}"   
+                echo "${{toJson(github)}}"   
                 git clone https://github.com/${{github.repository}}.git
 
     
